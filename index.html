@@ -18,58 +18,70 @@
         </header>
 
         <main>
-            <section id="upload-section" class="section">
-                <h2>Upload Learner Data</h2>
-                <div class="upload-area">
-                    <input type="file" id="excel-file" accept=".xlsx,.xls" multiple />
-                    <label for="excel-file">Choose Excel Files</label>
-                    <div class="upload-status" id="upload-status"></div>
-                    <div class="loading-spinner" id="upload-spinner" style="display: none;"></div>
-                </div>
-            </section>
+            <!-- Tab Navigation -->
+            <div class="tab-navigation">
+                <button class="tab-button active" data-tab="upload">📁 Upload Data</button>
+                <button class="tab-button" data-tab="manage">📊 Manage Data</button>
+            </div>
 
-            <section id="learner-section" class="section">
-                <h2>Select Learner</h2>
-                <div class="learner-selection">
-                    <input type="text" id="learner-search" placeholder="Search learner name..." />
-                    <select id="learner-dropdown">
-                        <option value="">Select a learner...</option>
-                    </select>
-                </div>
-                <div class="learner-info" id="learner-info"></div>
-            </section>
-
-            <section id="transgression-section" class="section">
-                <h2>Add Transgression</h2>
-                <div class="transgression-form">
-                    <select id="transgression-select">
-                        <option value="">Select transgression...</option>
-                        <option value="homework" data-points="10">Homework not done (10 points)</option>
-                        <option value="late" data-points="10">Late coming (10 points)</option>
-                        <option value="books" data-points="10">Books not at school (10 points)</option>
-                        <option value="behavior" data-points="15">Behavior (15 points)</option>
-                        <option value="custom" data-points="10">Other (10 points)</option>
-                    </select>
-                    <input type="text" id="custom-description" placeholder="Other transgression description..." style="display: none;" />
-                    <button id="add-transgression" disabled>Add Transgression</button>
-                </div>
-            </section>
-
-            <section id="records-section" class="section">
-                <h2>Discipline Records</h2>
-                <div class="records-container">
-                    <div class="filters">
-                        <input type="text" id="search-records" placeholder="Search records..." />
-                        <select id="filter-status">
-                            <option value="all">All Learners</option>
-                            <option value="flagged">Flagged Only</option>
-                            <option value="normal">Normal Only</option>
-                        </select>
-                        <button id="clear-database" class="clear-button">🗑️ Clear Database</button>
+            <!-- Upload Tab Content -->
+            <div id="upload-tab" class="tab-content active">
+                <section id="upload-section" class="section">
+                    <h2>Upload Learner Data</h2>
+                    <div class="upload-area">
+                        <input type="file" id="excel-file" accept=".xlsx,.xls" multiple />
+                        <label for="excel-file">Choose Excel Files</label>
+                        <div class="upload-status" id="upload-status"></div>
+                        <div class="loading-spinner" id="upload-spinner" style="display: none;"></div>
                     </div>
-                    <div class="records-list" id="records-list"></div>
-                </div>
-            </section>
+                </section>
+            </div>
+
+            <!-- Manage Tab Content -->
+            <div id="manage-tab" class="tab-content">
+                <section id="learner-section" class="section">
+                    <h2>Select Learner</h2>
+                    <div class="learner-selection">
+                        <input type="text" id="learner-search" placeholder="Search learner name..." />
+                        <select id="learner-dropdown">
+                            <option value="">Select a learner...</option>
+                        </select>
+                    </div>
+                    <div class="learner-info" id="learner-info"></div>
+                </section>
+
+                <section id="transgression-section" class="section">
+                    <h2>Add Transgression</h2>
+                    <div class="transgression-form">
+                        <select id="transgression-select">
+                            <option value="">Select transgression...</option>
+                            <option value="homework" data-points="10">Homework not done (10 points)</option>
+                            <option value="late" data-points="10">Late coming (10 points)</option>
+                            <option value="books" data-points="10">Books not at school (10 points)</option>
+                            <option value="behavior" data-points="15">Behavior (15 points)</option>
+                            <option value="custom" data-points="10">Other (10 points)</option>
+                        </select>
+                        <input type="text" id="custom-description" placeholder="Other transgression description..." style="display: none;" />
+                        <button id="add-transgression" disabled>Add Transgression</button>
+                    </div>
+                </section>
+
+                <section id="records-section" class="section">
+                    <h2>Discipline Records</h2>
+                    <div class="records-container">
+                        <div class="filters">
+                            <input type="text" id="search-records" placeholder="Search records..." />
+                            <select id="filter-status">
+                                <option value="all">All Learners</option>
+                                <option value="flagged">Flagged Only</option>
+                                <option value="normal">Normal Only</option>
+                            </select>
+                            <button id="clear-database" class="clear-button">🗑️ Clear Database</button>
+                        </div>
+                        <div class="records-list" id="records-list"></div>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 

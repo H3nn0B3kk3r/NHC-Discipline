@@ -59,6 +59,7 @@ class DisciplineSystem {
         const searchRecords = document.getElementById('search-records');
         const filterStatus = document.getElementById('filter-status');
         const clearDatabaseBtn = document.getElementById('clear-database');
+        const tabButtons = document.querySelectorAll('.tab-button');
 
         excelFile.addEventListener('change', (e) => this.handleExcelUpload(e));
         learnerSearch.addEventListener('input', (e) => this.handleLearnerSearch(e));
@@ -68,6 +69,11 @@ class DisciplineSystem {
         searchRecords.addEventListener('input', (e) => this.filterRecords(e));
         filterStatus.addEventListener('change', (e) => this.filterRecords(e));
         clearDatabaseBtn.addEventListener('click', () => this.clearDatabase());
+        
+        // Tab switching
+        tabButtons.forEach(button => {
+            button.addEventListener('click', (e) => this.switchTab(e.target.dataset.tab));
+        });
     }
 
     async handleExcelUpload(event) {
@@ -587,6 +593,18 @@ class DisciplineSystem {
                     </ul>
                 </div>
             `).join('');
+    }
+
+    switchTab(tabName) {
+        // Remove active class from all tabs and buttons
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+        
+        // Add active class to clicked button and corresponding content
+        document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+        document.getElementById(`${tabName}-tab`).classList.add('active');
+        
+        console.log(`Switched to ${tabName} tab`);
     }
 
     updateProgress(message) {
